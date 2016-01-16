@@ -30,8 +30,7 @@ if [ "$1" = 'weave' ]; then
     echo $(< /dev/urandom tr -dc A-Za-z0-9 | head -c16 ; echo) > /opt/weave.auth
 
     WEAVE_PASSWORD=$(cat /opt/weave.auth)
-    /opt/bin/weave launch --ipalloc-range "$2" --password $WEAVE_PASSWORD
-    # TODO: look at openvpn scripts from hub.docker - i want to run this script with params etc
+    /opt/bin/weave launch --ipalloc-range "$2" --password "$WEAVE_PASSWORD"
 else
     exec "$@"
 fi
