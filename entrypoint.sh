@@ -1,7 +1,7 @@
 #!/bin/bash
+set -e
 if [ "$1" = 'weave' ]; then
 
-    set -e
     if [ -d /docker-entrypoint.d ]; then
         for f in /docker-entrypoint.d/*.sh; do
             [ -f "$f" ] && . "$f"
