@@ -2,8 +2,8 @@
 set -e
 if [ "$1" = 'weave' ]; then
 
-    if [ -d /docker-entrypoint.d ]; then
-        for f in /docker-entrypoint.d/*.sh; do
+    if [ -d /entrypoint.d ]; then
+        for f in /entrypoint.d/*.sh; do
             [ -f "$f" ] && . "$f"
         done
     fi
