@@ -27,7 +27,9 @@ if [ "$1" = 'weave' ]; then
 
     logger -t WEAVE.WORKS -s "installed binary..."
 
-    echo $(< /dev/urandom tr -dc A-Za-z0-9 | head -c16 ; echo) > /opt/weave.auth
+    if ! [ -r /opt/weave.auth ]; then
+        echo $(< /dev/urandom tr -dc A-Za-z0-9 | head -c16 ; echo) > /opt/weave.auth
+    fi
 
     WEAVE_PASSWORD=$(cat /opt/weave.auth)
     /opt/bin/weave launch --ipalloc-range "$2" --password "$WEAVE_PASSWORD"
