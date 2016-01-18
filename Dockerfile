@@ -1,4 +1,4 @@
-FROM debian:stable-backports
+FROM debian:jessie-backports
 MAINTAINER Voob of Doom <voobscout@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive \
